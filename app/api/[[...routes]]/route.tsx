@@ -6,11 +6,12 @@ import { neynar } from 'frog/hubs'
 import { handle } from 'frog/next'
 import { serveStatic } from 'frog/serve-static'
 
+const apiKey = process.env.NEYNAR_API_KEY;
+
 const app = new Frog({
   assetsPath: '/',
   basePath: '/api',
-  // Supply a Hub to enable frame verification.
-  hub: neynar({ apiKey: process.env.NEYNAR_API_KEY })
+  hub: neynar({ apiKey })
 })
 
 // Uncomment to use Edge Runtime
