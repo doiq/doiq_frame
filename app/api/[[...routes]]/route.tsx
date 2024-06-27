@@ -6,7 +6,7 @@ import { neynar } from 'frog/hubs'
 import { handle } from 'frog/next'
 import { serveStatic } from 'frog/serve-static'
 
-const apiKey = process.env.NEYNAR_API_KEY;
+const apiKey = process.env.NEYNAR_API_KEY as string;
 
 const app = new Frog({
   assetsPath: '/',
