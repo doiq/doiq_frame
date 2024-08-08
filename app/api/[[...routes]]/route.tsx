@@ -16,12 +16,12 @@ const HOSTNAME = "https://doiq-frame.vercel.app"
 const app = new Frog({
   assetsPath: '/',
   basePath: '/api',
-  hub: neynarHub({ apiKey: "NEYNAR_FROG_FM" })
+  hub: neynarHub({ apiKey })
   // hub: neynar({ apiKey })
 } as FrogConstructorParameters)
   .use(neynar(
     {
-      apiKey: "NEYNAR_FROG_FM",
+      apiKey,
       features: ['interactor', 'cast'],
     }
   ))
@@ -33,20 +33,12 @@ const answers = ["doiq", "doiq?", "doiq!"]
 const getRandomAnswer = () => {
   return answers[Math.floor(Math.random() * answers.length)];
 };
-const fakeData = {
-  fid: "12388",
-  username: "dotmantosh",
-  displayName: "dotmantosh",
-
-}
 
 // Uncomment to use Edge Runtime
 // export const runtime = 'edge'
 
 app.frame('/', (c) => {
-  const { buttonValue, status, frameData, verified } = c
-  const fruit = buttonValue
-  console.log("rendering frame")
+  const { buttonValue } = c
   return c.res({
     action: '/doiq',
     image: (
@@ -101,8 +93,7 @@ app.frame('/', (c) => {
 })
 
 app.frame('/doiq', async (c) => {
-  const { buttonValue, status } = c;
-  const fruit = buttonValue;
+  const { buttonValue } = c;
 
   let user = null;
   let isUpdatedMoreThan10Mins = false;
@@ -112,7 +103,6 @@ app.frame('/doiq', async (c) => {
   try {
     const response = await UserService.fetchUserByFidFromFrontend(c.var.interactor?.fid.toString() as string);
     user = response.user;
-    console.log('usr from /doiq fetchUserbyFid', user)
     if (user) {
       lastUpdated = moment(user.updatedAt);
       isUpdatedMoreThan10Mins = lastUpdated.isBefore(tenMinutesAgo);
@@ -160,7 +150,7 @@ app.frame('/doiq', async (c) => {
           ],
         });
       } else {
-        console.log('no user found from /doiq finduserbyfid')
+        
         const minutesLeft = (10 - moment().diff(lastUpdated)).toString();
         // console.log(minutesLeft)
         return c.res({
@@ -261,8 +251,6 @@ app.frame('/doiq', async (c) => {
 
 
   } catch (error: any) {
-
-    console.log('Error from /doiq :', error.message);
     return c.res({
       image: (
         <div
@@ -304,7 +292,7 @@ app.frame('/doiq', async (c) => {
 
 
 app.frame('/result', async (c) => {
-  const { buttonValue, status } = c
+  const { buttonValue } = c
   const doiqValue = buttonValue
   const doiqAnswer = getRandomAnswer()
   const userData = {
@@ -314,7 +302,6 @@ app.frame('/result', async (c) => {
   try {
     let response = await UserService.fetchUserByFidFromFrontend(c.var.interactor?.fid.toString() as string)
     let user = response.user
-    console.log('user found: /result ', user)
     if (user) {
 
       const response = await UserService.UpdateUserFromFrontend(user.fid, userData)
@@ -377,7 +364,6 @@ app.frame('/result', async (c) => {
         ],
       })
     } else {
-      console.log('usr not found /results')
       const userData = {
         username: c.var.interactor?.username,//fakeData.username
         displayName: c.var.interactor?.displayName,//fakeData.displayName
@@ -450,8 +436,6 @@ app.frame('/result', async (c) => {
     }
 
   } catch (error: any) {
-
-    console.log('Error: /result', error.message);
     return c.res({
       image: (
         <div
