@@ -11,7 +11,6 @@ function Leaderboard() {
   const [allDoiqCount, setAllDoiqCount] = useState(0)
   const [isFetchingLeaderboard, setIsFetchingLeaderboard] = useState(false)
   const handleFetchLeaderboard = async () => {
-    console.log('I got here')
     try {
       setIsFetchingLeaderboard(true)
       const resData = (await ApiClient.FetchUsers()).data
