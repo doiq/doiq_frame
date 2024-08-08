@@ -4,15 +4,12 @@ const connection: { isConnected?: number } = {};
 
 // const URI = process.env.MONGODB_URI_DEV
 const URI = process.env.MONGODB_URI
-console.log('uri from dbconnections: ', URI)
 
 async function dbConnect() {
   if (connection.isConnected) {
     console.log('Already connected to the database.');
     return;
   }
-
-
 
   if (!URI) {
     console.log('no database uri')
