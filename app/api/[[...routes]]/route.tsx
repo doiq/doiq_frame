@@ -93,7 +93,43 @@ app.frame('/', (c) => {
 })
 
 app.frame('/doiq', async (c) => {
-  const { buttonValue } = c;
+  const { buttonValue, verified } = c;
+
+  if (!verified) {
+    return c.res({
+      image: (
+        <div
+          style={{
+            alignItems: 'center',
+            background: 'white',
+            backgroundSize: '100% 100%',
+            display: 'flex',
+            flexDirection: 'column',
+            flexWrap: 'nowrap',
+            height: '100%',
+            justifyContent: 'center',
+            textAlign: 'center',
+            width: '100%',
+          }}
+        >
+          <div
+            style={{
+              color: 'black',
+              fontSize: 62,
+              fontStyle: 'normal',
+              letterSpacing: '-0.025em',
+              lineHeight: 1,
+              marginTop: 30,
+              padding: '0 120px',
+              whiteSpace: 'pre-wrap',
+            }}
+          >
+            Error! Not verified.
+          </div>
+        </div>
+      ),
+    });
+  }
 
   let user = null;
   let isUpdatedMoreThan10Mins = false;
@@ -150,7 +186,7 @@ app.frame('/doiq', async (c) => {
           ],
         });
       } else {
-        
+
         const minutesLeft = (10 - moment().diff(lastUpdated)).toString();
         // console.log(minutesLeft)
         return c.res({
@@ -292,7 +328,44 @@ app.frame('/doiq', async (c) => {
 
 
 app.frame('/result', async (c) => {
-  const { buttonValue } = c
+  const { buttonValue, verified } = c
+
+  if (!verified) {
+    return c.res({
+      image: (
+        <div
+          style={{
+            alignItems: 'center',
+            background: 'white',
+            backgroundSize: '100% 100%',
+            display: 'flex',
+            flexDirection: 'column',
+            flexWrap: 'nowrap',
+            height: '100%',
+            justifyContent: 'center',
+            textAlign: 'center',
+            width: '100%',
+          }}
+        >
+          <div
+            style={{
+              color: 'black',
+              fontSize: 62,
+              fontStyle: 'normal',
+              letterSpacing: '-0.025em',
+              lineHeight: 1,
+              marginTop: 30,
+              padding: '0 120px',
+              whiteSpace: 'pre-wrap',
+            }}
+          >
+            Error! Not verified.
+          </div>
+        </div>
+      ),
+    });
+  }
+
   const doiqValue = buttonValue
   const doiqAnswer = getRandomAnswer()
   const userData = {
