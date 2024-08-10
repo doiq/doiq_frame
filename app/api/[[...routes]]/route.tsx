@@ -187,7 +187,7 @@ app.frame('/doiq', async (c) => {
         });
       } else {
 
-        const minutesLeft = (10 - moment().diff(lastUpdated)).toString();
+        const minutesLeft = (10 - moment().diff(lastUpdated, 'minutes')).toString();
         // console.log(minutesLeft)
         return c.res({
           action: '/',
