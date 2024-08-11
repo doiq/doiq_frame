@@ -480,7 +480,7 @@ app.frame('/result', async (c) => {
                 doiqValue === doiqAnswer ?
                   ``
                   :
-                  `You  got it wrong with your bet: ${doiqValue}`
+                  `You got it wrong with your bet: ${doiqValue}`
               }
 
             </div>
@@ -641,7 +641,7 @@ app.frame('/result', async (c) => {
                 doiqValue === doiqAnswer ?
                   ``
                   :
-                  `You  got it wrong with your bet: ${doiqValue}`
+                  `You got it wrong with your bet: ${doiqValue}`
               }
 
             </div>
