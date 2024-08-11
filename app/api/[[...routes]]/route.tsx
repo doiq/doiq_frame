@@ -218,7 +218,7 @@ app.frame('/doiq', async (c) => {
                   whiteSpace: 'pre-wrap',
                 }}
               >
-                {`Hi ${c.var.interactor?.username as string}, You've doiqed too hard.`}
+                {`Hi doiqer, You've doiqed too hard.`}
               </div>
               <div
                 style={{
@@ -410,9 +410,13 @@ app.frame('/result', async (c) => {
             >
               {
                 doiqValue === doiqAnswer ?
-                  `Thanks for playing. You got it correct, You chose ${doiqAnswer}. Your answer has been recieved by the great doiq himself`
+                  `Damn doiqer, you've some aura.
+                  You got it right this time with your bet: ${doiqValue} `
                   :
-                  `Thanks for playing. You got it wrong this time. You chose ${doiqValue}, but the answer is ${doiqAnswer}. Your answer has been recieved by the great doiq himself`
+                  `You doiqwit!
+                  You  got it wrong with your bet: ${doiqValue}
+                  The correct answer is: ${doiqAnswer}
+                  `
               }
             </div>
             <div
@@ -479,9 +483,13 @@ app.frame('/result', async (c) => {
             >
               {
                 doiqValue === doiqAnswer ?
-                  `Thanks for playing. You got it correct, You chose ${doiqAnswer}. Your answer has been recieved by the great doiq himself`
+                  `Damn doiqer, you've some aura.
+                  You got it right this time with your bet: ${doiqValue} `
                   :
-                  `Thanks for playing. You got it wrong this time. You chose ${doiqValue}, but the answer is ${doiqAnswer}. Your answer has been recieved by the great doiq himself`
+                  `You doiqwit!
+                  You  got it wrong with your bet: ${doiqValue}
+                  The correct answer is: ${doiqAnswer}
+                  `
               }
 
             </div>
