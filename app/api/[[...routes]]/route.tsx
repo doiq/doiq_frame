@@ -396,6 +396,7 @@ app.frame('/result', async (c) => {
               width: '100%',
             }}
           >
+            {/* doiq value == correct answer */}
             <div
               style={{
                 color: 'black',
@@ -406,19 +407,107 @@ app.frame('/result', async (c) => {
                 marginTop: 30,
                 padding: '0 120px',
                 whiteSpace: 'pre-wrap',
+                textAlign: 'center'
               }}
             >
               {
                 doiqValue === doiqAnswer ?
-                  `Damn doiqer, you've some aura.
-                  You got it right this time with your bet: ${doiqValue} `
+                  `Damn doiqer, you've some aura.`
                   :
-                  `You doiqwit!
-                  You  got it wrong with your bet: ${doiqValue}
-                  The correct answer is: ${doiqAnswer}
-                  `
+                  ""
               }
+
             </div>
+            <div
+              style={{
+                color: 'black',
+                fontSize: 62,
+                fontStyle: 'normal',
+                letterSpacing: '-0.025em',
+                lineHeight: 1,
+                marginTop: 30,
+                padding: '0 120px',
+                whiteSpace: 'pre-wrap',
+                textAlign: 'center'
+              }}
+            >
+              {
+                doiqValue === doiqAnswer ?
+                  `You got it right this time with your bet: ${doiqValue} `
+                  :
+                  ''
+              }
+
+            </div>
+
+
+            {/* doiq value == incorrect anwser */}
+            <div
+              style={{
+                color: 'black',
+                fontSize: 62,
+                fontStyle: 'normal',
+                letterSpacing: '-0.025em',
+                lineHeight: 1,
+                marginTop: 30,
+                padding: '0 120px',
+                whiteSpace: 'pre-wrap',
+                textAlign: 'center'
+              }}
+            >
+              {
+                doiqValue === doiqAnswer ?
+                  ``
+                  :
+                  `You doiqwit!`
+              }
+
+            </div>
+            <div
+              style={{
+                color: 'black',
+                fontSize: 62,
+                fontStyle: 'normal',
+                letterSpacing: '-0.025em',
+                lineHeight: 1,
+                marginTop: 30,
+                padding: '0 120px',
+                whiteSpace: 'pre-wrap',
+                textAlign: 'center'
+              }}
+            >
+              {
+                doiqValue === doiqAnswer ?
+                  ``
+                  :
+                  `You  got it wrong with your bet: ${doiqValue}`
+              }
+
+            </div>
+            <div
+              style={{
+                color: 'black',
+                fontSize: 62,
+                fontStyle: 'normal',
+                letterSpacing: '-0.025em',
+                lineHeight: 1,
+                marginTop: 30,
+                padding: '0 120px',
+                whiteSpace: 'pre-wrap',
+                textAlign: 'center'
+              }}
+            >
+              {
+                doiqValue === doiqAnswer ?
+                  ``
+                  :
+                  `The correct answer is: ${doiqAnswer}`
+              }
+
+            </div>
+
+            {/* doiq nexttime */}
+
             <div
               style={{
                 color: 'black',
@@ -468,6 +557,7 @@ app.frame('/result', async (c) => {
               width: '100%',
             }}
           >
+            {/* doiq value == correct answer */}
             <div
               style={{
                 color: 'black',
@@ -483,16 +573,102 @@ app.frame('/result', async (c) => {
             >
               {
                 doiqValue === doiqAnswer ?
-                  `Damn doiqer, you've some aura.
-                  You got it right this time with your bet: ${doiqValue} `
+                  `Damn doiqer, you've some aura.`
                   :
-                  `You doiqwit!
-                  You  got it wrong with your bet: ${doiqValue}
-                  The correct answer is: ${doiqAnswer}
-                  `
+                  ""
               }
 
             </div>
+            <div
+              style={{
+                color: 'black',
+                fontSize: 62,
+                fontStyle: 'normal',
+                letterSpacing: '-0.025em',
+                lineHeight: 1,
+                marginTop: 30,
+                padding: '0 120px',
+                whiteSpace: 'pre-wrap',
+                textAlign: 'center'
+              }}
+            >
+              {
+                doiqValue === doiqAnswer ?
+                  `You got it right this time with your bet: ${doiqValue} `
+                  :
+                  ''
+              }
+
+            </div>
+
+
+            {/* doiq value == incorrect anwser */}
+            <div
+              style={{
+                color: 'black',
+                fontSize: 62,
+                fontStyle: 'normal',
+                letterSpacing: '-0.025em',
+                lineHeight: 1,
+                marginTop: 30,
+                padding: '0 120px',
+                whiteSpace: 'pre-wrap',
+                textAlign: 'center'
+              }}
+            >
+              {
+                doiqValue === doiqAnswer ?
+                  ``
+                  :
+                  `You doiqwit!`
+              }
+
+            </div>
+            <div
+              style={{
+                color: 'black',
+                fontSize: 62,
+                fontStyle: 'normal',
+                letterSpacing: '-0.025em',
+                lineHeight: 1,
+                marginTop: 30,
+                padding: '0 120px',
+                whiteSpace: 'pre-wrap',
+                textAlign: 'center'
+              }}
+            >
+              {
+                doiqValue === doiqAnswer ?
+                  ``
+                  :
+                  `You  got it wrong with your bet: ${doiqValue}`
+              }
+
+            </div>
+            <div
+              style={{
+                color: 'black',
+                fontSize: 62,
+                fontStyle: 'normal',
+                letterSpacing: '-0.025em',
+                lineHeight: 1,
+                marginTop: 30,
+                padding: '0 120px',
+                whiteSpace: 'pre-wrap',
+                textAlign: 'center'
+              }}
+            >
+              {
+                doiqValue === doiqAnswer ?
+                  ``
+                  :
+                  `The correct answer is: ${doiqAnswer}`
+              }
+
+            </div>
+
+
+            {/* doiq nexttime */}
             <div
               style={{
                 color: 'black',
