@@ -218,7 +218,7 @@ app.frame('/doiq', async (c) => {
                   whiteSpace: 'pre-wrap',
                 }}
               >
-                {`Hi doiqer, You've doiqed too hard.`}
+                {`Hi doiqer, you've doiqed too hard.`}
               </div>
               <div
                 style={{
