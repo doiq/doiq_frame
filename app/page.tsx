@@ -10,6 +10,8 @@ export async function generateMetadata(): Promise<Metadata> {
     `${process.env.VERCEL_URL || 'https://doiq-frame.vercel.app'}`,
   )
   return {
+    title: "Doiq Betting Frame",
+    description: "Just doiq it",
     other: frameTags,
   }
 }
